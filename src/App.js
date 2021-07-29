@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
+import Activity from './Activity';
 import './App.css';
 
 function App() {
+  const [mood, setMood] = useState(false);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>My Mood: {
+        mood ? 'ON!':'OFF'
+        }</h2>
+        <button onClick={() => setMood(!mood)} >Swing</button>
+      <Activity mood={mood}></Activity>
     </div>
   );
 }
